@@ -1,11 +1,12 @@
 package config;
 
-public class UriData {
-	
-	
+public class URLData {
+
 	public static String getSingleFileUri(){
 		String URIString = "C://Trideep//Classes//NLP//IMDBMovieSearchData//synopses//departed_coref";
 		return URIString;
+		
+		
 	}
 	
 	public static String getCleanedPlotsFolderUri(){
@@ -27,6 +28,4 @@ public class UriData {
 		String URIString = "C://Trideep//Classes//NLP//IMDBMovieSearchData//synopses//departed_coref";
 		return URIString;
 	}
-	
-
 }
