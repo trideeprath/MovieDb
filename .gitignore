@@ -1,2 +1,3 @@
 *.class
 /.classpath
+/src/config/UriData.java
