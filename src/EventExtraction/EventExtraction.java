@@ -19,7 +19,6 @@ public class EventExtraction {
 	public static ArrayList<String> eventExtractionEngine(String[] linesInPlot) {
 		
 		for(int i=0;i<linesInPlot.length;i++){	
-			
 			SentenceToGraph stg = new SentenceToGraph();
 			GraphPassingNode gpn2 = stg.extractGraph(linesInPlot[i],false,true,false);
 			ArrayList<String> list = gpn2.getAspGraph();
@@ -34,23 +33,25 @@ public class EventExtraction {
 						Node nd = it.next().getGraphNode();
 						addEvents(nd);
 					}
-					for(String e: eventList)
-						System.out.println(e);
+					for(String e: eventList){
+						//System.out.println(e);
+					}
 					System.out.println("Done!!!");
 				
-				
+				/*	
 				Iterator iterator = hm.keySet().iterator();
 				while (iterator.hasNext()) {
 				   String key = iterator.next().toString();
 				   String value = hm.get(key).toString();
 				   //System.out.println(key + " " + value);
 				}
+				*/
 			}
 			catch(StackOverflowError e)
 			{
 				System.err.println("ERROR: "+ linesInPlot[i] );
 			}
-		}	return null;
+		}	return eventList;
 	}
 
 	private static void addEvents(Node nd) {
@@ -62,21 +63,20 @@ public class EventExtraction {
 			ArrayList<Node> children = nd.getChildren();
 			ArrayList<String> agent = new ArrayList<String>();
 			ArrayList<String> entities = new ArrayList<String>() ;
-			System.out.println("<< " + nd.getValue() + " >>");
+			//System.out.println("<< " + nd.getValue() + " >>");
 			for(int j = 0 ; j < children.size() ; j++){
 				if(edgeList.get(j).equals("next_event"))
 				{
 					try {
 						addEvents(children.get(j));
 					} catch (StackOverflowError e) {
-						// TODO: handle exception
 						System.err.println("ouch!!");
 					}
 				}
 				if(edgeList.get(j).equals("agent"))
 				{	
 					agent.add(children.get(j).getValue());
-					System.out.println(children.get(j).getValue() + " " + children.get(j).isAnEntity() + " " + edgeList.get(j));
+					//System.out.println(children.get(j).getValue() + " " + children.get(j).isAnEntity() + " " + edgeList.get(j));
 				}
 				else if(!edgeList.get(j).equals("agent") && children.get(j).isAnEntity()){
 					entities.add(children.get(j).getValue() + ":" + edgeList.get(j));
@@ -102,9 +102,11 @@ public class EventExtraction {
 				}
 			}
 			
-			System.out.println(edgeList.size() + " " + children.size());
+			//System.out.println(edgeList.size() + " " + children.size());
 		}
+		
 	}
+	
 
 }
 
