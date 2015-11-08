@@ -13,8 +13,10 @@ import module.graph.helper.NodePassedToViewer;
 public class EventExtraction {
 
 	public static ArrayList<String> eventList = new ArrayList<String>();
+	
+	
 
-	private static ArrayList<String> eventExtractionEngine(String[] linesInPlot) {
+	public static ArrayList<String> eventExtractionEngine(String[] linesInPlot) {
 		
 		for(int i=0;i<linesInPlot.length;i++){	
 			

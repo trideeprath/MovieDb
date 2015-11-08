@@ -13,6 +13,7 @@ import java.util.Properties;
 import java.util.regex.Pattern;
 import java.io.*;
 import java.util.*;
+
 import module.graph.MakeGraph;
 import module.graph.ParserHelper;
 import module.graph.SentenceToGraph;
@@ -30,6 +31,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.apache.commons.io.IOUtils;
+
+import EventExtraction.EventExtraction;
+
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
@@ -61,7 +65,8 @@ public class Test {
 	
 	public static ArrayList<String> eventList = new ArrayList<String>();
 
-	@SuppressWarnings("unused")
+	
+	/*
 	public static void main(String[] args) throws IOException{
 		String everything;
 		FileInputStream inputStream = new FileInputStream("C://Trideep//Classes//NLP//IMDBMovieSearchData//synopses//departed_coref");
@@ -76,12 +81,15 @@ public class Test {
 		//String[] linesInPlot = str.split("(?<=[a-z])\\.\\s+");
 		String[] linesInPlot = str.split(" \\.");
 		
-		ArrayList<String> eventsFromLinesInPlot = eventExtractionEngine(linesInPlot);
+		ArrayList<String> eventsFromLinesInPlot = EventExtraction.eventExtractionEngine(linesInPlot);
 		
 		
 		System.exit(0);
 	}
+	
+	*/
 
+	/*
 	private static ArrayList<String> eventExtractionEngine(String[] linesInPlot) {
 		// TODO Auto-generated method stub
 		
@@ -182,5 +190,7 @@ public class Test {
 			System.out.println(edgeList.size() + " " + children.size());
 			}
 	}
+	
+	*/
 
 }

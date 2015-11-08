@@ -1,3 +1,4 @@
 *.class
 /.classpath
 /src/config/UriData.java
+/src/TestTrideep.java
